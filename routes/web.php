@@ -28,3 +28,7 @@ Route::get('/articles/more',function(){
 });
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
