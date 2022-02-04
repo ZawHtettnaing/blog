@@ -22,11 +22,16 @@ Route::get('/articles/detail',function(){
 })->name('articles.detail');
 
 Route::get('/articles/detail/{id}','ArticleController@detail');
-
+Route::get('/articles/add','ArticleController@add');
+Route::post('/articles/add','ArticleController@create');
+Route::get('/articles/delete/{id}','ArticleController@delete');
 Route::get('/articles/more',function(){
     return redirect()->route('articles.detail');
 });
 
+
+Route::post('/articles/detail/{article_id}/comments/add','CommentController@create');
+Route::get('/articles/detail/{aritcle_id}/comments/delete/{comment_id}','CommentController@delete');
 
 
 Auth::routes();
